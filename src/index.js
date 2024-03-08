@@ -26,22 +26,13 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/dashboard",
+        element: <GamingDashboard />,
+      }
     ],
   },
-  {
-    path: "/dashboard",
-    element: <GamingDashboard />,
-    children: [
-      {
-        path: "/",
-        element: <Login />,
-      },
-        {
-        path: "/register",
-        element: <Register />,
-      },
-    ],
-  }
+ 
 ])
 root.render(
   <StrictMode>

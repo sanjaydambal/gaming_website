@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Home.css'; // Import CSS file for styling
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 const Home = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const history = useNavigate();
+
+  const handleSignOut = () => {
+    // Clear authentication status and navigate to sign-in page
+    setIsLoggedIn(false);
+    history('/login');
+  };
+
   return (
     <div className="home-container">
       {/* Header */}
@@ -12,14 +21,18 @@ const Home = () => {
           <span>POGR</span>
         </div>
         <div className="right">
-        <button className='SignInBtn' ><Link to={'/login'}>Sign In</Link></button>
-        <button className='registerBtn'><Link to={'/register'}>Register</Link></button>
-      </div>
+          {isLoggedIn ? (
+            <button className='signOutBtn' onClick={handleSignOut}>Sign Out</button>
+          ) : (
+            <>
+              <button className='signInBtn'><Link to={'/login'}>Sign In</Link></button>
+              <button className='registerBtn'><Link to={'/register'}>Register</Link></button>
+            </>
+          )}
+        </div>
       </div>
 
-      
       <div className="main">
-      
         <div className="navbar">
           <ul>
             <li>Home</li>
@@ -27,9 +40,8 @@ const Home = () => {
           </ul>
         </div>
         
-
         <div className="content">
-        <Outlet /> 
+          <Outlet /> 
         </div>
       </div>
     </div>
