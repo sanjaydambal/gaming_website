@@ -22,7 +22,7 @@
     margin-left: 20px;
   }
 
-  .right button.SignIn {
+  .right button.SignInBtn {
     background-color: #555;
     color: white;
     padding: 15px 25px;;
@@ -30,7 +30,7 @@
     
   }
   
-  .right button.register {
+  .right button.registerBtn {
     background-color: white;
     color: #333;
     padding: 15px 25px;

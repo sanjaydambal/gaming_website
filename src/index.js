@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Home';
 import Login from './Login'; 
 import Register from './Register';
+import GamingDashboard from './GamingDashboard';
+
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
@@ -25,6 +28,20 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/dashboard",
+    element: <GamingDashboard />,
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+        {
+        path: "/register",
+        element: <Register />,
+      },
+    ],
+  }
 ])
 root.render(
   <StrictMode>

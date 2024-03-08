@@ -12,8 +12,8 @@ const Home = () => {
           <span>POGR</span>
         </div>
         <div className="right">
-        <button className='SignIn' ><Link to={'/login'}>Sign In</Link></button>
-        <button className='register'><Link to={'/register'}>Register</Link></button>
+        <button className='SignInBtn' ><Link to={'/login'}>Sign In</Link></button>
+        <button className='registerBtn'><Link to={'/register'}>Register</Link></button>
       </div>
       </div>
 
