@@ -2,12 +2,14 @@ import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter,Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Home from './Home';
 import Login from './Login'; 
 import Register from './Register';
 import GamingDashboard from './GamingDashboard';
+import News from './News';
+import { AuthProvider } from './Auth'
 
 
 const container = document.getElementById('root');
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <GamingDashboard />,
+      },
+      {
+        path: "/news",
+        element: <News />,
       }
     ],
   },
@@ -36,7 +42,11 @@ const router = createBrowserRouter([
 ])
 root.render(
   <StrictMode>
+     <AuthProvider>
     <RouterProvider router={router} />
+    
+     
+    </AuthProvider>
   </StrictMode>
 );
 

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css'; // Import CSS file for styling
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
+import { useAuth } from './Auth';
 
 const Home = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+ const { isLoggedIn,logout } = useAuth();
   const history = useNavigate();
 
   const handleSignOut = () => {
-    // Clear authentication status and navigate to sign-in page
-    setIsLoggedIn(false);
-    history('/login');
+       logout()
+       history('/login');
   };
 
   return (
@@ -25,7 +25,7 @@ const Home = () => {
             <button className='signOutBtn' onClick={handleSignOut}>Sign Out</button>
           ) : (
             <>
-              <button className='signInBtn'><Link to={'/login'}>Sign In</Link></button>
+              <button className='registerBtn'><Link to={'/login'}>Login </Link></button>
               <button className='registerBtn'><Link to={'/register'}>Register</Link></button>
             </>
           )}
@@ -36,7 +36,7 @@ const Home = () => {
         <div className="navbar">
           <ul>
             <li>Home</li>
-            <li>News</li>
+            <li><Link to={"/news"}>News</Link></li>
           </ul>
         </div>
         

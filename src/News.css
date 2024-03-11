@@ -1,0 +1,27 @@
+.news-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .news-card {
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+  
+  
+  .news-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .news-card p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  
