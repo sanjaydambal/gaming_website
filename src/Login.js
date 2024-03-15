@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
 import { useAuth } from './Auth';
 
 function Login() {
-   const { login } = useAuth()
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
-  console.log(useAuth());
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -21,14 +20,13 @@ const navigate = useNavigate();
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-      
       });
 
       const data = await response.json();
-      console.log(data); // Output response from server
-console.log(response)
+
       if (response.ok) {
-        login();
+        // Save token to local storage and trigger login
+        login(data.token);
 
         // Redirect to dashboard after successful login
         navigate('/dashboard');

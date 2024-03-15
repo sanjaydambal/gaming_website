@@ -1,16 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Home.css'; // Import CSS file for styling
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom'; // Changed useNavigate to useHistory
 import { Outlet } from 'react-router-dom';
 import { useAuth } from './Auth';
+import axios from 'axios'; // Added import for axios
 
 const Home = () => {
- const { isLoggedIn,logout } = useAuth();
-  const history = useNavigate();
+  const { isLoggedIn, logout } = useAuth();
+  const history = useNavigate(); // Changed useNavigate to useHistory
 
-  const handleSignOut = () => {
-       logout()
-       history('/login');
+  const handleSignOut = async () => {
+    try {
+      const token = localStorage.getItem('token'); // Retrieve token from localStorage
+      const response = await axios.post('http://localhost:3001/logout', {}, {
+        headers: { Authorization: token } // Include token in request headers
+      });
+
+      if (response.status === 200) { // Check response status code
+        logout();
+        history('/login');
+      }
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
   return (
@@ -35,7 +47,7 @@ const Home = () => {
       <div className="main">
         <div className="navbar">
           <ul>
-            <li>Home</li>
+            <li><Link to={"/"}>Home</Link></li> {/* Added Link to Home */}
             <li><Link to={"/news"}>News</Link></li>
           </ul>
         </div>
