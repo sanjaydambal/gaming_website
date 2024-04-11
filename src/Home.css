@@ -46,21 +46,27 @@
   height: 100%;
   background-color: #333;
   color: #f0f0f0;
-  display: flex; /* Add */
-  flex-direction: column; /* Add */
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar ul {
   list-style-type: none;
   padding: 0;
-  margin-top: 20px; /* Adjust */
+  margin-top: 20px;
 }
 
 .navbar ul li {
-  padding:  10px 5px;
+  padding: 10px 5px;
   cursor: pointer;
+  text-decoration: none; /* Remove underline */
 }
 
+.navbar ul li a {
+  
+  text-decoration: none;
+  color: inherit;
+}
 .content {
   flex: 1;
   background-color: #f0f0f0;

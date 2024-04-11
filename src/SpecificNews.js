@@ -13,7 +13,7 @@ const SpecificNews = () => {
       try {
         const token = localStorage.getItem('token'); 
         console.log('Token:', token); // Log token to verify its value
-        const response = await axios.get(`http://localhost:3001/news/${id}`, {
+        const response = await axios.get(`https://gaming-backend-f2n7.onrender.com/news/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`, // Ensure token is prefixed with "Bearer "
           },

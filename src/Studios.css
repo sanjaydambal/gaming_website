@@ -1,0 +1,66 @@
+.studio-container .studio {
+    margin-top: 50px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .studio-container .header {
+    margin-bottom: 100px;
+    margin-top: 50px;
+    width: 100%;
+  }
+  
+  .studio-container .studio-image {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .studio-container .details-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .studio-container .form-row {
+    margin-bottom: 15px;
+    display: flex;
+  }
+  
+  .studio-container input[type="text"],
+  .studio-container input[type="email"],
+  .studio-container textarea,
+  .studio-container button,
+  .studio-container input[type="file"] {
+    width: calc(50% - 5px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .studio-container textarea {
+    height: 100px;
+  }
+  
+  .studio-container input[type="file"] {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .studio-container button {
+    width: 20%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .studio-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

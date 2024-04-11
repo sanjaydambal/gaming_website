@@ -12,7 +12,7 @@ const Home = () => {
   const handleSignOut = async () => {
     try {
       const token = localStorage.getItem('token'); // Retrieve token from localStorage
-      const response = await axios.post('http://localhost:3001/logout', {}, {
+      const response = await axios.post('https://gaming-backend-f2n7.onrender.com/logout', {}, {
         headers: { Authorization: token } // Include token in request headers
       });
 
@@ -47,8 +47,14 @@ const Home = () => {
       <div className="main">
         <div className="navbar">
           <ul>
-            <li><Link to={"/"}>Home</Link></li> {/* Added Link to Home */}
+            <li><Link to={"/"}>Home</Link></li> 
             <li><Link to={"/news"}>News</Link></li>
+            <li><Link to={"/profile"}>My Profile</Link></li>
+            <li><Link to={"/games"}>Games</Link></li>
+            <li><Link to={"/library"}>Library</Link></li> 
+            <li><Link to={"/mydashboard"}>My Dashboard</Link></li>
+            <li><Link to={"/settings"}>Setings</Link></li>
+
           </ul>
         </div>
         

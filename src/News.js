@@ -10,7 +10,7 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/news');
+        const response = await axios.get('https://gaming-backend-f2n7.onrender.com/news');
         setNews(response.data);
       } catch (error) {
         console.error('Error fetching news:', error.message);
