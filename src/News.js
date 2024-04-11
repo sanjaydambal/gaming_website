@@ -29,14 +29,16 @@ const News = () => {
         </Breadcrumb.Item>
       </Breadcrumb>
       <div className="news-container">
-        {news.map((item) => (
-          <div className="news-card" key={item.news_id}>
-            <p>{item.short_description}</p>
-            <Link to={`/news/${item.news_id}`} className="news-title">
-              {item.title}
-            </Link>
-          </div>
-        ))}
+      {news.map((item) => (
+  <div className="news-card" key={item.news_id}>
+    <p>{item.short_description}</p>
+    <Link to={`/news/${item.news_id}`} className="news-title">
+      {item.title}
+    </Link>
+    <p>Published on: {new Date(item.date_published).toLocaleDateString()}</p>
+  </div>
+))}
+
       </div>
     </div>
   );
